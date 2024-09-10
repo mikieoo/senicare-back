@@ -43,7 +43,7 @@ public class WebSecurityConfig {
             .cors(cors -> cors.configurationSource(configurationSource()))
             // URL 패턴 및 HTTP 메서드에 따라 인증 및 인가 여부 지정
             .authorizeHttpRequests(request -> request
-                .requestMatchers("/api/v1/auth/**", "/", "").permitAll()
+                .requestMatchers("/api/v1/auth/**", "/").permitAll()
                 .anyRequest().authenticated()
             )
             // 필터 등록
