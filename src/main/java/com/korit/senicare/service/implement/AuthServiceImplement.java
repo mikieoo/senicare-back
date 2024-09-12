@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.korit.senicare.common.util.AuthNumberCreator;
 import com.korit.senicare.dto.request.auth.IdCheckRequestDto;
+import com.korit.senicare.dto.request.auth.SignInRequestDto;
 import com.korit.senicare.dto.request.auth.SignUpRequestDto;
 import com.korit.senicare.dto.request.auth.TelAuthCheckRequestDto;
 import com.korit.senicare.dto.request.auth.TelAuthRequestDto;
 import com.korit.senicare.dto.response.ResponseDto;
+import com.korit.senicare.dto.response.auth.SignInResponseDto;
 import com.korit.senicare.entity.NurseEntity;
 import com.korit.senicare.entity.TelAuthNumberEntity;
+import com.korit.senicare.provider.JwtProvider;
 import com.korit.senicare.provider.SmsProvider;
 import com.korit.senicare.repository.NurseRepository;
 import com.korit.senicare.repository.TelAuthNumberRepository;
@@ -25,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class AuthServiceImplement implements AuthService {
 
     private final SmsProvider smsProvider;
+    private final JwtProvider jwtProvider;
 
     private final NurseRepository nurseRepository;
     private final TelAuthNumberRepository telAuthNumberRepository;
@@ -137,6 +141,35 @@ public class AuthServiceImplement implements AuthService {
         }
 
         return ResponseDto.success();
+    }
+
+    @Override
+    public ResponseEntity<? super SignInResponseDto> signIn(SignInRequestDto dto) {
+
+        String userId = dto.getUserId();
+        String password = dto.getPassword();
+
+        String accessToken = null;
+
+        try {
+
+            NurseEntity nurseEntity = nurseRepository.findByUserId(userId);
+            if (nurseEntity == null) return ResponseDto.signInFail();
+
+            String encodedPassword = nurseEntity.getPassword();
+            boolean isMatched = passwordEncoder.matches(password, encodedPassword);
+            if (!isMatched) return ResponseDto.signInFail();
+
+            accessToken = jwtProvider.create(userId);
+            if (accessToken == null) return ResponseDto.tokenCreateFail();
+
+        } catch(Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+
+        return SignInResponseDto.success(accessToken);
+
     }
     
 }
