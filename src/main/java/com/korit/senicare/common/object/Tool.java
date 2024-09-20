@@ -1,5 +1,8 @@
 package com.korit.senicare.common.object;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import com.korit.senicare.entity.ToolEntity;
 
 import lombok.Getter;
@@ -19,4 +22,14 @@ public class Tool {
         this.count = toolEntity.getCount();
     }
 
+    public static List<Tool> getList(List<ToolEntity> toolEntities) {
+        
+        List<Tool> tools = new ArrayList<>();
+        for(ToolEntity toolEntity: toolEntities) {
+            Tool tool = new Tool(toolEntity);
+            tools.add(tool);
+        }
+
+        return tools;
+    }
 }

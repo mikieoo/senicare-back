@@ -1,5 +1,6 @@
 package com.korit.senicare.entity;
 
+import com.korit.senicare.dto.request.tool.PatchToolRequestDto;
 import com.korit.senicare.dto.request.tool.PostToolRequestDto;
 
 import jakarta.persistence.Entity;
@@ -28,6 +29,13 @@ public class ToolEntity {
     private Integer count;
 
     public ToolEntity(PostToolRequestDto dto) {
+        this.name = dto.getName();
+        this.purpose = dto.getPurpose();
+        this.count = dto.getCount();
+    }
+
+    // 생성자와 내용이 똑같지만 생성하고 수정할 때 사용하기 때문에 따로 메서드를 작성해줌
+    public void patch(PatchToolRequestDto dto) {
         this.name = dto.getName();
         this.purpose = dto.getPurpose();
         this.count = dto.getCount();
