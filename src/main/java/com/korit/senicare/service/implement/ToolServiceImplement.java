@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.korit.senicare.common.object.Tool;
 import com.korit.senicare.dto.request.tool.PatchToolRequestDto;
 import com.korit.senicare.dto.request.tool.PostToolRequestDto;
 import com.korit.senicare.dto.response.ResponseDto;
