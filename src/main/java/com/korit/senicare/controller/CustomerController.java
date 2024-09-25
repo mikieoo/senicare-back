@@ -46,8 +46,8 @@ public class CustomerController {
     }
 
     @PatchMapping("/{customerNumber}")
-    public ResponseEntity<ResponseDto> patchCustomer(@RequestBody @Valid PatchCustomerRequestDto requestBody, @PathVariable Integer customnerNumber, @AuthenticationPrincipal String userId) {
-        ResponseEntity<ResponseDto> response = customerService.patchCustomer(requestBody, customnerNumber, userId);
+    public ResponseEntity<ResponseDto> patchCustomer(@RequestBody @Valid PatchCustomerRequestDto requestBody, @PathVariable Integer customerNumber, @AuthenticationPrincipal String userId) {
+        ResponseEntity<ResponseDto> response = customerService.patchCustomer(requestBody, customerNumber, userId);
         return response;
     }
 
