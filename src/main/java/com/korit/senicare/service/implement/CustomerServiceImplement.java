@@ -12,7 +12,7 @@ import com.korit.senicare.dto.response.customer.GetCustomerListResponseDto;
 import com.korit.senicare.entity.CustomerEntity;
 import com.korit.senicare.repository.CustomerRepository;
 import com.korit.senicare.repository.NurseRepository;
-import com.korit.senicare.repository.resultset.GetCustomerResultSet;
+import com.korit.senicare.repository.resultset.GetCustomersResultSet;
 import com.korit.senicare.service.CustomerService;
 
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class CustomerServiceImplement implements CustomerService {
     @Override
     public ResponseEntity<? super GetCustomerListResponseDto> getCustomreList() {
         
-        List<GetCustomerResultSet> resultSets = new ArrayList<>();
+        List<GetCustomersResultSet> resultSets = new ArrayList<>();
 
         try {
 
@@ -55,7 +55,7 @@ public class CustomerServiceImplement implements CustomerService {
             
         } catch (Exception exception) {
             exception.printStackTrace();
-            return null;
+            return ResponseDto.databaseError();
         }
 
         return GetCustomerListResponseDto.success(resultSets);

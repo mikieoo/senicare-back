@@ -20,7 +20,7 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Intege
             "C.location as location, " +
             "N.name as chargerName, " +
             "N.user_id as chargerId " +
-        "FROM customers C left nurses N " +
+        "FROM customers C left join nurses N " +
         "on C.charger = N.user_id " +
         "ORDER BY C.custom_number DESC ",
         nativeQuery = true

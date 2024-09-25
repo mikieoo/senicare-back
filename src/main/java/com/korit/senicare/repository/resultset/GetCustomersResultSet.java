@@ -1,6 +1,6 @@
 package com.korit.senicare.repository.resultset;
 
-public interface GetCustomerResultSet {
+public interface GetCustomersResultSet {
     Integer getCustomerNumber();
     String getName();
     String getBirth();
