@@ -27,4 +27,5 @@ public class PostCustomerRequestDto {
 
     @NotBlank
     private String location;
+    
 }
