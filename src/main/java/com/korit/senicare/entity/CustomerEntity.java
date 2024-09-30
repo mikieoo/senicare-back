@@ -36,8 +36,7 @@ public class CustomerEntity {
         this.name = dto.getName();
         this.birth = dto.getBirth();
         this.charger = dto.getCharger();
-        this.address = dto.getCharger();
-        this.location = dto.getAddress();
+        this.address = dto.getAddress();
         this.location = dto.getLocation();
     }
 
@@ -46,8 +45,7 @@ public class CustomerEntity {
         this.name = dto.getName();
         this.birth = dto.getBirth();
         this.charger = dto.getCharger();
-        this.address = dto.getCharger();
-        this.location = dto.getAddress();
+        this.address = dto.getAddress();
         this.location = dto.getLocation();
     }
 

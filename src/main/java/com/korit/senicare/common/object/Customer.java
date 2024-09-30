@@ -1,4 +1,4 @@
-package com.korit.senicare.common.customer;
+package com.korit.senicare.common.object;
 
 import java.util.ArrayList;
 import java.util.List;

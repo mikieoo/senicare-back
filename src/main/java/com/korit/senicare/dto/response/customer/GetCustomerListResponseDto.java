@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.korit.senicare.common.customer.Customer;
+import com.korit.senicare.common.object.Customer;
 import com.korit.senicare.dto.response.ResponseCode;
 import com.korit.senicare.dto.response.ResponseDto;
 import com.korit.senicare.dto.response.ResponseMessage;
