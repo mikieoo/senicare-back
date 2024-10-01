@@ -2,7 +2,6 @@ package com.korit.senicare.service;
 
 import org.springframework.http.ResponseEntity;
 
-import com.korit.senicare.dto.request.customer.PatchCustomerRequestDto;
 import com.korit.senicare.dto.request.nurse.PatchNurseRequestDto;
 import com.korit.senicare.dto.response.ResponseDto;
 import com.korit.senicare.dto.response.nurse.GetChargedCustomerResponseDto;
