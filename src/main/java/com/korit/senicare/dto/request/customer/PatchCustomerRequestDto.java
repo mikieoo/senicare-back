@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class PatchCustomerRequestDto {
-    
+
     @NotBlank
     private String profileImage;
 
@@ -27,5 +27,5 @@ public class PatchCustomerRequestDto {
 
     @NotBlank
     private String location;
-    
+
 }
